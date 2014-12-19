@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}User Register - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">Register</h2>
+
+{# <div id="msg">{{ msg|safe }}</div> #}
+
+<form id="registerForm" action="/users/register/" method="post">{% csrf_token %}
+<p>
+  {{ form.username.label_tag }}
+  {{ form.username }}
+</p>
+
+{% if form.username.errors %}
+<p>
+  <label>&nbsp;</label>
+  <span class="input error">
+    {% for error in form.username.errors %}
+      {{ error }}
+    {% endfor %}
+  </span>
+</p>
+{% endif %}
+
+<p>
+  {{ form.password1.label_tag }}
+  {{ form.password1 }}
+</p>
+
+{% if form.password1.errors %}
+<p>
+  <label>&nbsp;</label>
+  <span class="input error">
+    {% for error in form.password1.errors %}
+      {{ error }}
+    {% endfor %}
+  </span>
+</p>
+{% endif %}
+
+<p>
+  {{ form.password2.label_tag }}
+  {{ form.password2 }}
+</p>
+
+{% if form.password2.errors %}
+<p>
+  <label>&nbsp;</label>
+  <span class="input error">
+    {% for error in form.password2.errors %}
+      {{ error }}
+    {% endfor %}
+  </span>
+</p>
+{% endif %}
+
+<p>
+  <label>&nbsp;</label>
+  <input type="submit" value="Register" />
+</p>
+</form>
+{% endblock %}
+
+{% block jquery %}{% endblock jquery %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}Writings - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">Writings</h2>
+
+<div id="tabs">
+  <ul>
+  {% for cat in categories %}
+ 		<li><a href="#{{ cat }}">{{ cat }}</a></li>
+ 	{% endfor %}
+  </ul>
+  
+  {% for cat in writings %}
+  <div id="{{ cat|first }}">
+    {% for year in cat|last %}
+    <h4>{{ year|first|default:'Unspecified' }}</h4>
+    
+    <ul class="nobullet">
+      {% for entry in year|last %}
+        <li><a href="{{ entry.title }}/">{{ entry.title }}</a>{% if entry.description %} - {{ entry.description }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+ 	{% endfor %}
+</div> <!-- </div id="tabs"> -->
+{% endblock %}
+
+{% block jquery %}$("#tabs").tabs();{% endblock jquery %}

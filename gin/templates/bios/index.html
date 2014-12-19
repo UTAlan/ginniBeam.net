@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}Bios - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">Bios</h2>
+
+<div id="tabs">
+  <ul>
+  {% for cat in categories %}
+ 		<li><a href="#{{ cat }}">{{ cat }}</a></li>
+ 	{% endfor %}
+  </ul>
+  
+  {% for c in bios %}
+	<div id="{{ c.0.category }}">
+		<ul class="nobullet">
+			{% for bio in c %}
+			<li><a href="{{ bio }}">{{ bio }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endfor %}
+</div> <!-- </div id="tabs"> -->
+{% endblock %}
+
+{% block jquery %}$("#tabs").tabs();{% endblock jquery %}

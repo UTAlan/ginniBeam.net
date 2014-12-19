@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}{{ title }} - Names in Songs - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">{{ title }}</h2>
+
+<p id="namesong_breadcrumb">Browse: <a href="/lists/namesongs/">Name Songs Directory</a> &gt;&gt; <a href="/lists/namesongs/artists/{% if is_digit %}0{% else %}{{ title|first }}{% endif %}">Artists ({% if is_digit %}Number{% else %}{{ title|first }}{% endif %})</a> &gt;&gt; <strong>{{ title }}</strong> </p>
+
+<script type="text/javascript" src="http://tablesorter.com/jquery.tablesorter.min.js"></script>
+
+<style type="text/css">
+table.tablesorter {
+  width: 100%;
+  border-collapse: collapse;
+}
+table.tablesorter thead tr th {
+  width: 50%;
+  color: #000;
+  cursor: pointer;
+  border: solid 1px #CCC;
+}
+table.tablesorter thead tr .headerSortUp {
+	background: #8DBDD8 url("/media/images/sort_asc.gif") no-repeat center right;
+}
+table.tablesorter thead tr .headerSortDown {
+	background: #8DBDD8 url("/media/images/sort_desc.gif") no-repeat center right;
+}
+table.tablesorter tbody tr td {
+  color: #000;
+  border: solid 1px #CCC;
+}
+</style>
+
+<table id="artists_table" class="tablesorter">
+  <thead>
+  <tr>
+    <th>Song</th>
+    <th>Name(s)</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for s in song_list %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ s.song_name }}</td>
+    <td>{% for n in s.name.all %}<a href="/lists/namesongs/names/{{ n }}">{{ n }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+
+{% block jquery %}
+$("#artists_table").tablesorter( { sortList: [[0,0]] } );
+{% endblock jquery %}

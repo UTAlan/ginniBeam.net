@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}Names in Songs - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">Names in Songs</h2>
+
+<p id="namesong_breadcrumb">Browse: <strong>Name Songs Directory</strong></p>
+
+<fieldset>
+	<legend style="padding: 0 5px;">Names Directory</legend>
+	
+	<a href="/lists/namesongs/names/A/">A</a> | <a href="/lists/namesongs/names/B/">B</a> | <a href="/lists/namesongs/names/C/">C</a> | 
+	<a href="/lists/namesongs/names/D/">D</a> |	<a href="/lists/namesongs/names/E/">E</a> | <a href="/lists/namesongs/names/F/">F</a> | 
+	<a href="/lists/namesongs/names/G/">G</a> | <a href="/lists/namesongs/names/H/">H</a> | <a href="/lists/namesongs/names/I/">I</a> | 
+	<a href="/lists/namesongs/names/J/">J</a> | <a href="/lists/namesongs/names/K/">K</a> | <a href="/lists/namesongs/names/L/">L</a> | 
+	<a href="/lists/namesongs/names/M/">M</a> | <a href="/lists/namesongs/names/N/">N</a> | <a href="/lists/namesongs/names/O/">O</a> | 
+	<a href="/lists/namesongs/names/P/">P</a> | <a href="/lists/namesongs/names/Q/">Q</a> | <a href="/lists/namesongs/names/R/">R</a> | 
+	<a href="/lists/namesongs/names/S/">S</a> | <a href="/lists/namesongs/names/T/">T</a> |	<a href="/lists/namesongs/names/U/">U</a> | 
+	<a href="/lists/namesongs/names/V/">V</a> | <a href="/lists/namesongs/names/W/">W</a> | <a href="/lists/namesongs/names/X/">X</a> | 
+	<a href="/lists/namesongs/names/Y/">Y</a> | <a href="/lists/namesongs/names/Z/">Z</a> 
+</fieldset>
+
+<fieldset>
+	<legend style="padding: 0 5px;">Artists Directory</legend>
+  
+	<a href="/lists/namesongs/artists/0/">#</a> | <a href="/lists/namesongs/artists/A/">A</a> | <a href="/lists/namesongs/artists/B/">B</a> | <a href="/lists/namesongs/artists/C/">C</a> | 
+	<a href="/lists/namesongs/artists/D/">D</a> | <a href="/lists/namesongs/artists/E/">E</a> | <a href="/lists/namesongs/artists/F/">F</a> | 
+	<a href="/lists/namesongs/artists/G/">G</a> | <a href="/lists/namesongs/artists/H/">H</a> | <a href="/lists/namesongs/artists/I/">I</a> | 
+	<a href="/lists/namesongs/artists/J/">J</a> | <a href="/lists/namesongs/artists/K/">K</a> | <a href="/lists/namesongs/artists/L/">L</a> | 
+	<a href="/lists/namesongs/artists/M/">M</a> | <a href="/lists/namesongs/artists/N/">N</a> | <a href="/lists/namesongs/artists/O/">O</a> | 
+	<a href="/lists/namesongs/artists/P/">P</a> | <a href="/lists/namesongs/artists/Q/">Q</a> | <a href="/lists/namesongs/artists/R/">R</a> | 
+	<a href="/lists/namesongs/artists/S/">S</a> | <a href="/lists/namesongs/artists/T/">T</a> | <a href="/lists/namesongs/artists/U/">U</a> | 
+	<a href="/lists/namesongs/artists/V/">V</a> | <a href="/lists/namesongs/artists/W/">W</a> | <a href="/lists/namesongs/artists/X/">X</a> | 
+	<a href="/lists/namesongs/artists/Y/">Y</a> | <a href="/lists/namesongs/artists/Z/">Z</a>
+</fieldset>
+
+<p>
+  <strong>Rules</strong>
+  
+  <ul>
+    <li>The name must be in the song itself, not just the title.</li>
+    <li>The name cannot refer to someone famous (e.g., "Virginia Woolf" by the Indigo Girls).</li>
+    <li>For now, I'm only including English songs.</li>
+    <li>The song must refer to a person. For example, "Chelsea," by Counting Crows, would not fit because it refers to the city of Chelsea, NY, not to a girl named Chelsea.</li>
+    <li>If multiple artists have covered the same song, I will only include the original.</li>
+    <li>I don't vouch for the content or quality of the songs--only that they contain names.</li>
+</p>
+ 
+{% endblock %}
+
+{% block jquery %}{% endblock jquery %}

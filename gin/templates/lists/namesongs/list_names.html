@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}{{ name }} - Names in Songs - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">Names - {{ name }}</h2>
+
+<p id="namesong_breadcrumb">Browse: <a href="/lists/namesongs/">Name Songs Directory</a> &gt;&gt; <strong>Names ({{ name }})</strong></p>
+
+<p>
+{% for n in name_list %}
+	<a href="/lists/namesongs/names/{{ n }}">{{ n }}</a><br />	
+{% endfor %}
+</p>
+
+{% endblock %}
+
+{% block jquery %}{% endblock jquery %}

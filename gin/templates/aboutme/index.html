@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}About Me - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">About Me</h2>
+
+<p class="text">{% autoescape off %}{{ info.content|linebreaksbr|safe }}{% endautoescape %}</p>
+{% endblock %}
+
+{% block jquery %}$("#tabs").tabs();{% endblock jquery %}
