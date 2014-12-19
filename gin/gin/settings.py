@@ -8,7 +8,7 @@ SITE_NAME = 'ginniBeam.net'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 TEMPLATE_DEBUG = True
-ALLOWED_HOSTS = ['ginnibeam.net']
+ALLOWED_HOSTS = ['.ginnibeam.net']
 
 # Application definition
 INSTALLED_APPS = (

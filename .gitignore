@@ -1,5 +1,12 @@
 
 gin_env/
+
 *.pyc
 
 gin/gin/local_settings.py
+
+ARCHIVE/
+
+passenger_wsgi.*
+
+tmp/
