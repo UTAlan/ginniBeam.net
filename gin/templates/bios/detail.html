@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="title">{{ bio.name }}</h2>
+
+<p>
+	{% if bio.picture %}<img src="{{ bio.picture.url }}" alt="{{ bio.name }}" style="float: left; border: solid 1px #000; margin: 0 10px 0 0;" />{% endif %}
+	<strong>Birthday:</strong> {{ bio.birthdate }}<br />
+	{% if bio.relation %}<strong>Relation:</strong> {{ bio.relation }}<br />{% endif %}
+</p>
+
+{% autoescape off %}
+
+{% if bio.history %}
+<p><strong>History</strong></p> 
+{{ bio.history|linebreaks }}
+{% endif %}
+
+{% if bio.notes %}
+<p><strong>Notes</strong></p> 
+{{ bio.notes|linebreaks }}
+{% endif %}
+
+{% endautoescape %}
+
+{% endblock %}

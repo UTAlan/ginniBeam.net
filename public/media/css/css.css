@@ -1,0 +1,589 @@
+@import "jquery-ui-1.8.4.css";
+@import "jquery.lightbox-0.5.css";
+
+.left { float: left; }
+.center { text-align: center; }
+.clear { clear: both;        }
+.nobullet { list-style: none;   }
+.wait { cursor: wait;       }
+.hidden { display: none;      }
+.half { width: 50%; }
+.nomargin { margin: 0 !important; }
+
+body {
+  text-align: center;
+  font-size: 0.8em;
+  color: #737373;
+  background: #FFF url('../images/bgBody.png') repeat-x top left;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a img {
+  text-decoration: none;
+  border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+h3 a {
+  text-decoration: none;
+}
+
+
+/*
+ * CONTAINER
+ */
+div#container {
+  position: relative;
+  width: 950px;
+  min-height: 768px;
+  height: auto !important;
+  height: 768px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+  div#container div#header {
+    
+  }
+  
+    div#header div#menu {
+    
+    }
+  
+      div#menu ul {
+        float: left;
+        height: 45px;
+        margin :0;
+        padding: 0;
+        list-style: none;
+        background:transparent url('../images/bgMenu.png') no-repeat scroll left top;
+      }
+      
+        div#menu ul li {
+          float: left;
+          height: 45px;
+          background:transparent url('../images/bgMenu.png') no-repeat scroll right top;
+        }
+        
+          div#menu ul li a {
+            display: block;
+            height:20px;
+            margin:0;
+            padding:12px 15px;
+            font-size:smaller;
+            font-weight:bold;
+            text-decoration:none;
+            text-transform:uppercase;
+            color:#000;
+          }
+          
+            div#menu ul li a:hover {
+              color: #FFF;
+            }
+          
+      div#menu p#rss {
+        float: right;
+        margin: 7px 0;
+        padding: 0;
+      }
+      
+    div#header div#logo {
+      height: 297px;
+      margin-bottom: 5px;
+      background: #FFF url('../images/butterfly.png') no-repeat bottom left;
+    }
+    
+      div#logo h1 {
+        float: left;
+        margin: 0;
+        padding: 30px 20px 0;
+        text-transform: lowercase;
+        font-size: 3.1em;
+        font-weight: bold;
+        letter-spacing: -3px;
+      }
+      
+        div#logo h1 a {
+          text-decoration: none;
+          color: #414141;
+        }
+        
+      div#logo h2 {
+        float: right;
+        margin: 0;
+        padding: 46px 20px 0 0;
+        text-transform: lowercase;
+        text-align: right;
+        font-size: 1.3em;
+        font-weight: bold;
+        letter-spacing: -1px;
+        color: #414141;
+      }
+  
+  /*
+   * CONTENT
+   */
+  div#container div#content {
+    
+  }
+  
+    div#content h2.title {
+      margin: 0 0 10px 0;
+      padding: 5px 20px;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      font-size: 24px;
+      font-weight: bold;
+      color: #414141;
+      border-bottom: 1px dashed #B9B9B9;
+    }
+    
+      div#content h2.title a {
+        text-decoration: none;
+        color: #6A6A6A;
+      }
+      
+    div#content h3.title {
+      margin: 15px 0 15px 20px;
+      font-size: 1em;
+      font-weight: bold;
+    }
+    
+    div#content p.category {
+      float: right;
+      height: 16px;
+      margin: 0 0 10px 0;
+      padding: 0;
+      font-size:0.8em;
+      text-align:right;
+    }
+    
+    div#content p.tags {
+      float: left;
+      height: 16px;
+      margin: 0 0 10px 20px;
+      padding: 0 0 0 20px;
+      font-size:0.8em;
+      font-style:italic;
+      text-align:left;
+      background: transparent url('../images/icon_tag.png') no-repeat top left;
+    }
+    
+    div#content p.text {
+    	clear: both;
+    }
+    
+    div#content p {
+      margin: 15px 0 15px 20px;
+      line-height: 1.6em;
+    }
+    
+    div#content ul, div#content ol {
+      margin: 15px 0 15px 40px;
+    }
+    
+    div#content p.meta {
+      clear: both;
+      height:26px;
+      font-size:smaller;
+      text-decoration:none;
+      text-transform:uppercase;
+      border-top: 1px solid #E9E9E9;
+      background: #F5F5F5;
+    }
+    
+      div#content p.meta span.posted {
+        float: left;
+        height: 16px;
+        padding: 5px 20px;
+      }
+      
+      div#content p.meta span.permalink, div#content p.meta span.comments {
+        float:right;
+        height:16px;
+        padding:5px 20px;
+      }
+      
+    div#content p.pphoto {
+      float: left;
+      width: 50%;
+      margin-left: 0;
+      margin-right: 0;
+      text-align: center;
+    }
+    
+      div#content p.pphoto a {
+        text-decoration: none;
+      }
+    
+      div#content p.pphoto img {
+        border: solid 1px #000;
+      }
+      
+    div#content p#pphoto {
+      text-align: center;
+    }
+    
+      div#content p#pphoto img {
+        border: solid 1px #000;
+      }
+      
+    div#content p#pages {
+      clear: both;
+      text-align: center;
+    }
+    
+      div#content p#pages a#prev {
+        float: left;
+      }
+      
+      div#content p#pages a#next {
+        float: right;
+      }
+    
+    div#content form#commentForm {
+      display: none;
+    }
+    
+    div#content div#comments {
+      margin-bottom: 15px;
+    }
+    
+      div#comments div.commentEven {
+        padding: 15px 0 0;
+        background: #F5F5F5;
+      }
+      
+      div#comments div.commentOdd {
+        padding: 15px 0 0;
+        background: #FFF;
+      }
+      
+        div.commentEven div.commentAvatar, div.commentOdd div.commentAvatar {
+          text-align: center;
+        }
+        
+          div.commentAvatar img {
+            margin: 0 15px 10px;
+          }
+          
+          div#comments div.commentAvatar p {
+            margin-top: 0;
+            margin-left: 0;
+          }
+          
+          div#comments div.commentContent p {
+            margin-top: 0;
+            margin-left: 0;
+          }
+          
+    div#content input#title, div#content input#entry_name, div#content input#entry_description {
+      width: 300px;
+    }
+    
+    div#content textarea#blogContent, div#content textarea#entry_text {
+      width: 525px;
+      height: 250px;
+    }
+          
+    div#content form#manageBlogForm input#tags, div#content form#manageBlogForm input#groups {
+      width: 175px;
+    }
+    
+    div#content a.listTitle h3 {
+      cursor: pointer;
+    }
+      
+    div#content ul li.photos_thumbs {
+      float: left;
+      width: 100px;
+      height: 175px;
+      margin: 10px 10px 25px;
+      text-align: center;
+    }
+    
+    div#content ul li.gallery_thumbs {
+      float: left;
+      width: 100px;
+      height: 175px;
+      margin: 10px 10px 25px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+      li.gallery_thumbs a {
+        text-decoration: none;
+      }
+      
+    div#content fieldset.bio {
+      
+    }
+    
+      fieldset.bio legend {
+        padding: 0 10px;
+        color: #000;
+      }
+      
+      fieldset.bio h4 {
+        clear: both;
+      }
+      
+        fieldset.bio p img {
+          float: left;
+          margin: 0 15px 10px 0;
+          border: solid 1px #000;
+        }
+        
+    div#content ul#manageBioGroups  li input{  
+      display: block;
+    }
+  
+  /*
+   * SIDEBAR
+   */
+  div#container div#sidebar {
+    margin-top: 20px;
+  }
+  
+    div#sidebar div.sidebarItem {
+      margin: 0 0 20px;
+    }
+    
+      div.sidebarItem h2 {
+        height:20px;
+        margin:0 0 15px;
+        padding:6px 0 0 20px;
+        font-size:14px;
+        font-weight:bold;
+        text-transform:uppercase;
+        color:#000;
+        border-bottom:1px dashed #B9B9B9;
+      }
+      
+      div.sidebarItem ul {
+        padding: 0 20px;
+        list-style: none;
+      }
+      
+        div.sidebarItem ul li {
+          margin: 0;
+          padding: 0 0 5px 10px;
+          background: transparent url('../images/bgSidebarLI.png') no-repeat left 50%;
+        }
+        
+    div#sidebar a#twitterLink {
+      font-size: 10px; 
+      text-decoration: none;
+      color: #6F9CF9; 
+    }
+  
+  /*
+   * FOOTER
+   */
+  div#container div#footer {
+    padding: 20px 0;
+    font-size: 0.8em;
+    text-align: center;
+    border-top: solid 6px #414141;
+  }
+  
+/*
+ * FORMS
+ */
+label {
+  float: left;
+  clear: both;
+  margin: 0 0 10px;
+  padding-right: 10px;
+  text-align: right;
+  width: 150px;
+}
+
+input[type=text], input[type=password] {
+  float: left;
+  margin: 0 0 10px !important;
+  width: 150px;
+}
+
+span.input {
+  float: left;
+  margin: 0 0 10px !important;
+  width: 250px;
+}
+
+input[type=checkbox] {
+  float: left;
+  width: auto;
+  margin: 0px 10px 10px 87px;
+  text-align: right;
+}
+
+input[type=submit], input[type=button] {
+	float: left;
+  color: #FFF;
+  background: #414141;
+}
+
+textarea {
+  float: left;
+  margin: 0 0 10px !important;
+  width: 300px;
+  height: 100px;
+}
+
+form a img {
+  border: solid 1px #000;
+}
+
+/* simple css-based tooltip */ 
+span.tooltip { 
+  display:none; 
+  width:200px; 
+  padding:7px 15px; 
+  text-align:left; 
+  font-size:12px; 
+  color:#fff; 
+  outline:1px solid #669; 
+  border:2px solid #fff; 
+  background-color:#000;
+}
+
+div#success {
+  display: none;
+  z-index: 99;
+  top: 0px;
+  left: 0px;
+  width: 250px;
+  height: 250px;
+  color: #FFF;
+  background: #000;
+}
+
+/*
+ * TABS
+ *
+// root element for tabs
+ul.tabs { 
+	list-style:none; 
+	margin:0 !important; 
+	padding:0;	
+	border-bottom:1px solid #666;	
+	height:30px;
+}
+
+// single tab
+ul.tabs li { 
+	float:left;	 
+	text-indent:0;
+	padding:0;
+	margin:0 !important;
+	list-style-image:none !important; 
+}
+
+// link inside the tab. uses a background image
+ul.tabs a { 
+	background: url('../images/tabs_blue.png') no-repeat -420px 0;
+	font-size:11px;
+	display:block;
+	height: 30px;  
+	line-height:30px;
+	width: 134px;
+	text-align:center;	
+	text-decoration:none;
+	color:#333;
+	padding:0px;
+	margin:0px;	
+	position:relative;
+	top:1px;
+}
+
+ul.tabs a:active {
+	outline:none;		
+}
+
+// when mouse enters the tab move the background image
+ul.tabs a:hover {
+	background-position: -420px -31px;	
+	color:#fff;	
+}
+
+// active tab uses a class name "current". it's highlight is also done by moving the background image.
+ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
+	background-position: -420px -62px;		
+	cursor:default !important; 
+	color:#000 !important;
+}
+
+// Different widths for tabs: use a class name: w1, w2, w3 or w2
+
+
+// width 1
+ul.tabs a.s 			{ background-position: -553px 0; width:81px; }
+ul.tabs a.s:hover 	{ background-position: -553px -31px; }
+ul.tabs a.s.current  { background-position: -553px -62px; }
+
+// width 2
+ul.tabs a.l 			{ background-position: -248px -0px; width:174px; }
+ul.tabs a.l:hover 	{ background-position: -248px -31px; }
+ul.tabs a.l.current  { background-position: -248px -62px; }
+
+
+// width 3
+ul.tabs a.xl 			{ background-position: 0 -0px; width:248px; }
+ul.tabs a.xl:hover 	{ background-position: 0 -31px; }
+ul.tabs a.xl.current { background-position: 0 -62px; }
+
+
+// initially all panes are hidden
+div.panes div.pane {
+	display:none;		
+}
+
+div.panes div {
+	display:none;		
+	padding:15px 10px;
+	border:1px solid #999;
+	border-top:0;
+	min-height:100px;
+	height:auto !important;
+	height:100px;
+	font-size:14px;
+	background-color:#fff;
+}
+******/
+
+/*** PHOTOLOGUE ***/
+div.photo-gallery {
+  float: left;
+  width: 200px;
+  height: 175px;
+  text-align: center;
+}
+
+div.gallery-photo {
+  float: left;
+  width: 170px;
+  height: 145px;
+  margin: 15px;
+  text-align: center;
+}
+
+div.gallery-photo-large {
+  width: 100%;
+  margin: 15px;
+  text-align: center;
+}

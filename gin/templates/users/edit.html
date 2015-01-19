@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load gravatar %}
+
+{% block pagetitle %}Edit Profile - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">Edit Profile</h2>
+
+{% if msg %}
+<div id="msg">{% autoescape off %}{{ msg }}{% endautoescape %}</div>
+{% endif %}
+
+<form action="/users/edit/" method="post">
+<p>
+  <label for="id_username">Username</label>
+  <input type="text" id="id_username" disabled="disabled" value="{{ user.username }}" />
+</p>
+
+<p>
+  <label for="id_avatar">Avatar</label>
+  <span class="input"><a href="http://www.gravatar.com/site/login/"><img src="http://www.gravatar.com/avatar/{{ user.email|gravatar }}?d=identicon" alt="Avatar" /></a></span>
+</p>
+
+<p>
+  <label for="id_email">Email</label>
+  <input type="text" id="id_email" name="email" value="{{ user.email }}" />
+</p>
+
+<p>
+  <label>&nbsp;</label>
+  <span class="input"><a href="/users/password_change/">Change Password</a></span>
+</p>
+
+<p>
+  <label>&nbsp;</label>
+  <input type="submit" value="Save Changes" />
+</p>
+</form>
+
+<form action="/users/password/" method="post">
+
+</form>
+{% endblock %}
+
+{% block jquery %}{% endblock jquery %}

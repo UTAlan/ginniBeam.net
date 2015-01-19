@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+          <h2 class="title">Photos</h2>
+          
+          {% for g in info.galleries.object_list %}
+          <p class="pphoto{% cycle ' clear' '' %}">
+            <a href="/photos/{{ g.title }}"><img src="{{ g.cover.image_source.thumbnail.url }}" alt="" /><br />{{ g.title }}</a>
+          </p>
+          {% endfor %}
+          
+          <p id="pages">
+            {% if info.galleries.has_previous %}
+            <a id="prev" href="/photos/page/{{ info.galleries.previous_page_number }}/">Previous</a>
+            {% endif %}
+            {% if info.galleries.paginator.num_pages > 1 %}
+            Page {{ info.galleries.number }} of {{ info.galleries.paginator.num_pages }}.
+            {% endif %}
+            {% if info.galleries.has_next %}
+            <a id="next" href="/photos/page/{{ info.galleries.next_page_number }}/">Next</a>
+            {% endif %}
+          </p>
+{% endblock content %}
+
+{% block sidebar %}{% endblock sidebar %}

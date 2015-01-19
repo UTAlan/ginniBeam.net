@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% load gravatar %}
+
+{% block content %}
+          <h2 class="title">Photos</h2>
+          
+          <h3><a href="/photos/{{ info.gallery.title }}">{{ info.gallery.title }}</a></h3>
+          
+          <p id="pphoto"><img src="{{ info.photo.image_source.url }}" alt="" /></p>
+          
+          <p class="center">{% autoescape off %}{{ info.photo.caption }}{% endautoescape %}</p>
+          
+          <p id="pages">
+            {% if info.photos.has_previous %}
+            <a id="prev" href="/photos/{{ info.gallery.title }}/{{ info.prev_photo.id }}/">Previous</a>
+            {% endif %}
+            {% if info.photos.paginator.num_pages > 1 %}
+            Photo {{ info.photos.number }} of {{ info.photos.paginator.num_pages }}.
+            {% endif %}
+            {% if info.photos.has_next %}
+            <a id="next" href="/photos/{{ info.gallery.title }}/{{ info.next_photo.id }}/">Next</a>
+            {% endif %}
+          </p>
+          
+          <p class="center"><a id="comment_link" href="#">Post a Comment</a></p>
+
+          <div id="comment_div">
+					<form id="comment_form" action="/photos/{{ info.gallery.title }}/{{ info.photo.id }}/comment/" method="post">{% csrf_token %}
+					{% if user.is_authenticated %}
+					<p>
+              <label>Name</label>
+					    {{ user.username }}
+					    <input type="hidden" name="author_id" value="{{ user.id }}" />
+					    <input type="hidden" name="author_name" value="{{ user.username }}" />
+              <input type="hidden" name="author_email" value="{{ user.email }}" />
+					</p>
+					{% else %}
+					<p><label for="id_author_name">Name</label> {{ info.form.author_name }}</p>
+					<p><label for="id_author_email">Email</label> {{ info.form.author_email }}</p>
+					<p><label>&nbsp;</label></p>
+					<div id="id_recaptcha" style="float: left; margin-bottom: 10px;"></div>
+					{% endif %}
+			
+					<p><label for="id_content">Comment</label> {{ info.form.content }}</p>
+		
+					<p>
+					    <label>&nbsp;</label> 
+					    <input type="submit" value="Post" />
+					    <input type="hidden" name="post_id" value="{{ info.post.id }}" />
+					</p>
+					<br class="clear" />
+					</form>
+				  </div> <!-- </div id="comment_div"> -->
+			
+				  <div id="comments">
+					  {% for comment in info.comment_list %}
+					  <div class="comment{% cycle 'Odd' 'Even' %}">
+						  <a name="comment{{ comment.id }}"></a>
+						
+						  <div class="commentAvatar span-3">
+							  <img class="left" alt="Gravatar" src="http://www.gravatar.com/avatar/{{ comment.author_email|gravatar }}?d=identicon" />
+							  <br />
+							  <p><strong>{{ comment.author_name }}</strong></p>
+						  </div>
+						
+						  <div class="commentContent span-13">
+							  <p><em>Posted on {{ comment.created_date|date:"F d, Y \a\t h:i A" }}</em></p>
+							
+					    	  <p>{{ comment.content|linebreaks }}</p>
+						  </div>
+				    
+				          <div class="commentPadding span-1 last"></div>
+				          <br class="clear" />
+					  </div>
+					  {% endfor %}
+				  </div>
+
+{% endblock content %}
+
+{% block jquery %}
+    $("#comment_div").hide();
+    
+	  // Show Post Comment section
+    $("#comment_link").click(function() {
+      if($("#comment_div").is(":hidden")) {
+        $("#comment_div").show('slow');
+      } else {
+        $("#comment_div").hide('slow');
+      }
+      
+      return false;
+    });
+    
+    Recaptcha.create("6Lfi4bsSAAAAACzbh7RSz8Doy5M0lu6wpdn2Us3k", "id_recaptcha", { theme: "white", callback: Recaptcha.focus_response_field } );
+{% endblock jquery %}
+
+{% block sidebar %}{% endblock sidebar %}

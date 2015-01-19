@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+          <h2 class="title">{{ info.album.title }}</h2>
+          
+          {% for p in info.photos %}
+          <p class="photo"><a href="{{ p.img }}"{% if p.caption %} data-title="{{ p.caption }}"{% endif %} data-lightbox="album"><img src="{{ p.thumb }}" alt="" /></a></p>
+          {% endfor %}
+          
+          <style type="text/css">
+            p.photo {
+              width: 75px;
+              height: 75px;
+              float: left;
+              text-align: center;
+            }
+            
+            p.photo img {
+              border: solid 1px #000;
+            }
+          </style>
+{% endblock content %}
+
+{% block sidebar %}{% endblock sidebar %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}{% ifequal artist "0" %}Number{% else %}{{ artist }}{% endifequal %} - Names in Songs - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">Artists - {% ifequal artist "0" %}Number{% else %}{{ artist }}{% endifequal %}</h2>
+
+<p id="namesong_breadcrumb">Browse: <a href="/lists/namesongs/">Name Songs Directory</a> &gt;&gt; <strong>Artists ({% ifequal artist "0" %}Number{% else %}{{ artist }}{% endifequal %})</strong></p>
+
+<p>
+{% for a in artist_list %}
+	<a href="/lists/namesongs/artists/{{ a }}">{{ a }}</a><br />	
+{% endfor %}
+</p>
+ 
+{% endblock %}
+
+{% block jquery %}{% endblock jquery %}

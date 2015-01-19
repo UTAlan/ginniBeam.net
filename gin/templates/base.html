@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <title>{% block pagetitle %}ginnibeam.net{% endblock pagetitle %}</title>
+    
+    <!-- Meta -->
+    <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
+    <link rel="alternate" type="application/rss+xml" title="ginniBeam.net RSS Feed" href="http://feeds.feedburner.com/ginnibeamdotnet" />
+    <link rel="icon" type="image/png" href="/media/images/favicon.ico" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/media/css/blueprint/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="/media/css/blueprint/print.css" type="text/css" media="print" />    
+    <!--[if lt IE 8]><link rel="stylesheet" href="/media/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" href="/media/css/css.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="/media/css/lightbox.css" type="text/css" media="screen, projection" />
+    
+    <!-- JS -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script> <!-- Jquery -->
+    <script type="text/javascript" src="/media/js/jquery-ui-1.8.4.min.js"></script> <!-- Jquery UI -->
+    <script type="text/javascript" src="/media/js/lightbox.min.js"></script> <!-- Jquery Lightbox -->
+    <script type="text/javascript" src="/media/js/js.js"></script>
+    <script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js"></script> <!-- Recaptcha js -->
+    
+    <script type="text/javascript"><!--
+    // Google Analytics
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17251377-3']);
+    _gaq.push(['_trackPageview']);
+    
+    $(function() {
+        {% block jquery %}{% endblock jquery %}
+        
+        // Google Analytics
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    });
+    
+    {% block jscript %}{% endblock jscript %}
+    --></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header" class="span-24 last">
+        <div id="menu" class="span-24 last">
+          <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/aboutme/'>About Me</a></li>
+            <!-- <li><a href='/writings/'>Writings</a></li> -->
+            <li><a href='/yoga/'>Yoga</a></li>
+			<li><a href='/lists/namesongs/'>Names in Songs</a></li>
+            <li><a href='/quotes/'>Quotes</a></li>
+            <li><a href='/pics/'>Pictures</a></li>
+            <li><a href='/contact/'>Contact</a></li>
+          </ul>
+          
+          <p id="rss">
+          	<a href="http://www.facebook.com/ginnibeam"><img src="/media/images/icon_facebook.png" alt="Facebook" title="Facebook" /></a>
+          	<a href="http://www.twitter.com/saratina"><img src="/media/images/icon_twitter.png" alt="Twitter" title="Twitter" /></a>
+          	<a href="http://www.youtube.com/user/saratina"><img src="/media/images/icon_youtube.png" alt="Youtube" title="Youtube" /></a>
+          	<a href="http://feeds.feedburner.com/ginnibeamdotnet"><img src="/media/images/icon_rss.gif" alt="RSS Feed" title="Subscribe" /></a>
+          </p>
+        </div> <!-- </div id="menu"> -->
+        
+        <div id="logo" class="span-24 last">
+          <h1><a href="/">ginnibeam.net</a></h1>
+
+          <h2>this is the story of a warrior</h2>
+        </div> <!-- </div id="logo"> -->
+
+      </div> <!-- </div id="header"> -->
+      
+      <div id="content" class="span-17">
+		{% block content %}{% endblock %}
+      </div> <!-- </div id="content"> -->
+      
+      <div id="sidebar" class="span-7 last">
+        <div class="sidebarItem">
+          <h2>User Controls</h2>
+          
+          {% if user.is_authenticated %}
+          <ul>
+            {% if user.is_staff %}<li><a href="/admin/">Admin</a></li>{% endif %}
+            <li><a href="/users/edit/">Edit Profile</a></li>
+            <li><a href="/users/logout/">Logout</a></li>
+          </ul>
+          {% else %}
+          <ul>
+            <li><a href="/users/login/">Login</a></li>
+            <li><a href="/users/register/">Register</a></li>
+          </ul>
+          {% endif %}
+        </div> <!-- </div class="sidebarItem"> -->
+      </div> <!-- </div id="sidebar"> -->
+      
+      <div id="footer" class="span-24 last">
+        <p>&copy; 2010 ginniBeam.net &middot; Site by <a href="http://www.alanbeam.net/">AlanBeam.net</a></p>
+      </div> <!-- </div id="footer"> -->
+    </div> <!-- </div id="container"> -->
+  </body>
+</html>

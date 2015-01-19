@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}Quotes - ginnibeam.net{% endblock pagetitle %}
+
+{% block content %}
+<h2 class="title">Quotes</h2>
+
+{% for q in info.quotes %}
+<p><strong>{{ q.author.name }}</strong> - {{ q.content }}</p>
+{% endfor %}
+
+{% endblock %}
