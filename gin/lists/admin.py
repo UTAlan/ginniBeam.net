@@ -17,7 +17,7 @@ class SongAdmin(admin.ModelAdmin):
     ordering = ('is_public', 'song_name')
     search_fields = ['song_name','artist__name',]
     filter_horizontal = ('name',)
-    raw_id_fields = ('artist',)
+    #raw_id_fields = ('artist',)
 
 admin.site.register(Name, NameAdmin)
 admin.site.register(Artist, ArtistAdmin)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 gin_env/
 
@@ -10,3 +11,10 @@ ARCHIVE/
 passenger_wsgi.*
 
 tmp/
+=======
+local_settings.py
+
+*.pyc
+
+gin_env/
+>>>>>>> 359e0d478360df7a1577c9f7c839436ef379fb7c

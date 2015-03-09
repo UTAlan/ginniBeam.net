@@ -57,10 +57,15 @@ USE_TZ = True
 MEDIA_ROOT = SITE_ROOT + 'public/media/'
 MEDIA_URL = SITE_URL + 'media/'
 ADMIN_MEDIA_PREFIX = SITE_URL + 'media/admin/'
-STATIC_ROOT = SITE_ROOT + 'gin/static/' 
+#STATIC_ROOT = SITE_ROOT + 'gin/static/' 
 STATIC_URL = '/static/'
+#STATICFILES_DIRS = (
+#    SITE_ROOT + 'public/static/',
+#)
+
+STATIC_ROOT = SITE_ROOT + 'public/static/'
 STATICFILES_DIRS = (
-    SITE_ROOT + 'public/static/',
+    SITE_ROOT + 'gin/static/',
 )
 
 TEMPLATE_DIRS = (SITE_ROOT + 'gin/templates')
