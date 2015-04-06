@@ -2,6 +2,9 @@
 
 {% block pagetitle %}ginnibeam.net{% endblock pagetitle %}
 
+{% block sidebar %}{% endblock %}
+
+{% comment %}
 {% block content %}
 
 {% for post in recent_posts %}
@@ -29,5 +32,6 @@
 {% endif %}
 
 {% endblock %}
+{% endcomment %}
 
 {% block jquery %}{% endblock jquery %}

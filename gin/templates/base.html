@@ -73,6 +73,7 @@
       </div> <!-- </div id="content"> -->
       
       <div id="sidebar" class="span-7 last">
+	{% block sidebar %}
         <div class="sidebarItem">
           <h2>User Controls</h2>
           
@@ -89,6 +90,7 @@
           </ul>
           {% endif %}
         </div> <!-- </div class="sidebarItem"> -->
+	{% endblock %}
       </div> <!-- </div id="sidebar"> -->
       
       <div id="footer" class="span-24 last">
